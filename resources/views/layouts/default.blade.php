@@ -12,7 +12,7 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('index') }}">Navbar</a>
+        <a class="navbar-brand" href="{{ url('/') }}">Navbar</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -20,20 +20,20 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('index', session('city.slug')) }}">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{ url('/' . session('city.slug')) }}">Home</a>
                 </li>
 
-                @if (session('city'))
+{{--                @if (session('city'))--}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('about', session('city.slug')) }}">About</a>
+                        <a class="nav-link" href="{{ url(session('city.slug') . '/about') }}">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('news', session('city.slug')) }}">News</a>
+                        <a class="nav-link" href="{{ url(session('city.slug') . '/news') }}">News</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('reset') }}">Reset city</a>
                     </li>
-                @endif
+{{--                @endif--}}
             </ul>
 
             {{ session('city.title') ?? 'Select city' }}
