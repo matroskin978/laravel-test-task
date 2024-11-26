@@ -4,7 +4,7 @@
 
     <h1>Main page</h1>
 
-    <ul>
+    <ul style="column-count: 5;">
         @foreach($cities as $city)
             <li>
                 <a href="{{ url("/{$city->slug}") }}" @class([

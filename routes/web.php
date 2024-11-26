@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\CityController;
 
 Route::get('/reset', function () {
     session()->forget('city');
@@ -20,3 +21,5 @@ Route::prefix(\App\Helpers\CitySlug::getSlug())->middleware('city')->group(funct
     Route::get('/news', [MainController::class, 'news'])->name('news');
 });*/
 
+Route::get('/get-countries-capital', [CityController::class, 'getCountriesCapital']);
+Route::get('/get-cities', [CityController::class, 'getCities']);
